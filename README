@@ -1,0 +1,67 @@
+# Nim Development Container
+
+This repository contains a development container configuration for Nim using Visual Studio Code and Docker.
+
+## Prerequisites
+
+To run this development container, you need to have the following installed on your machine:
+
+1. [Docker](https://www.docker.com/get-started)
+2. [Visual Studio Code](https://code.visualstudio.com/)
+3. [Remote - Containers extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+## Getting Started
+
+Follow these steps to set up and run the development container:
+
+1. **Clone the repository**:
+    ```sh
+    git clone <repository-url>
+    cd <repository-directory>
+    ```
+
+2. **Open the repository in Visual Studio Code**:
+    ```sh
+    code .
+    ```
+
+3. **Reopen in Container**:
+    - Press `F1` to open the Command Palette.
+    - Type `Remote-Containers: Reopen in Container` and select it.
+
+Visual Studio Code will now build the Docker image specified in the `devcontainer.json` file and start a container based on that image. This may take a few minutes.
+
+## Configuration Details
+
+The `devcontainer.json` file includes the following configurations:
+
+- **Docker Image**: `nimlang/nim:latest`
+- **VS Code Extensions**:
+  - `kosz78.nim`
+  - `ms-vscode.cpptools`
+- **VS Code Settings**:
+  - `nim.project`: Specifies the Nim project file.
+  - `nim.lintOnSave`: Enables linting on save.
+  - `nim.buildOnSave`: Enables building on save.
+  - `nim.runOutputDirectory`: Specifies the output directory for compiled binaries.
+  - `files.autoSave`: Disabled to prevent auto-saving on changes.
+- **Post Create Command**: Installs additional tools and dependencies:
+  - Updates package lists and installs `gdb`.
+  - Installs the Nim package `pixie` using `nimble`.
+
+## Usage
+
+Once the container is running, you can start developing in Nim. The environment is pre-configured with the necessary tools and extensions to streamline your development workflow.
+
+### Building and Running Nim Code
+
+- **Build**: The project will automatically build on save if `nim.buildOnSave` is enabled.
+- **Run**: You can run your Nim code using the terminal within Visual Studio Code.
+
+### Debugging
+
+The container includes `gdb` for debugging. You can set up debugging configurations in Visual Studio Code to use `gdb` for debugging your Nim applications.
+
+## Additional Information
+
+For more information on using development containers with Visual Studio Code, refer to the [official documentation](https://code.visualstudio.com/docs/remote/containers).

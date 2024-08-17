@@ -14,9 +14,16 @@
                 "nim.lintOnSave": true,
                 "nim.buildOnSave": true,
                 "nim.runOutputDirectory": "bin",
-                "files.autoSave": "off" // Add this line to disable autosave on change
+                "files.autoSave": "off", // Add this line to disable autosave on change
+                "markdown.styles": [
+                    "https://cdn.jsdelivr.net/npm/github-markdown-css"
+                ],
+                "markdown.previewStyles": [
+                    "https://cdn.jsdelivr.net/npm/github-markdown-css"
+                ]
             }
         }
     },
-    "postCreateCommand": "apt-get update && apt-get install -y gdb && nimble install pixie -y"
+    "postCreateCommand": "apt-get update && apt-get install -y gdb && nimble install pixie -y",
+    "documentation": "https://code.visualstudio.com/docs/remote/containers"
 }

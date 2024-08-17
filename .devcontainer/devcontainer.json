@@ -1,0 +1,22 @@
+{
+    "name": "Nim",
+    "image": "nimlang/nim:latest",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "kosz78.nim",
+                "ms-vscode.cpptools"
+            ],
+            "settings": {
+                "nim.project": [
+                    "src/project.nim"
+                ],
+                "nim.lintOnSave": true,
+                "nim.buildOnSave": true,
+                "nim.runOutputDirectory": "bin",
+                "files.autoSave": "off" // Add this line to disable autosave on change
+            }
+        }
+    },
+    "postCreateCommand": "apt-get update && apt-get install -y gdb && nimble install pixie -y"
+}
